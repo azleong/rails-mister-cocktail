@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd;"><h1><%= @cocktail.name %></h1> <%= link_to "Back to cocktails", cocktail_path, class: "btn btn-primary" %>
+</nav>
+
+<h2><%= @cocktail.name %></h2>
+
+<hr>
+<h1>Dose</h1>
+<ul>
+  <% @dose.description.each do |dose| %>
+  <li class = ><%= dose.description %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Dosage', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+
+<%= render "/dose/new" %>
