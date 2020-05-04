@@ -1,14 +1,20 @@
 class DosesController < ApplicationController
 
   def new
+    # Get cocktail from the URL 
     @cocktail = Cocktail.find(params[:cocktail_id])
+    # simple_form needs an instance 
     @dose = Dose.new
   end
 
   def create
-    @dose = Dose.new(dose_params)
+    # Get the cocktail from the URL 
     @cocktail = Cocktail.find(params[:cocktail_id])
+    # Save the data from the form in a dose instance 
+    @dose = Dose.new(dose_params)
+    # Link the dose and cocktail together
     @dose.cocktail = @cocktail
+    # save it in the DB
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
