@@ -1,3 +1,5 @@
+<%= render "/shared/navbar" %>
+
 <hr>
 
 <div class="container">
@@ -9,5 +11,6 @@
       <li><%= dose.description %> <%= dose.ingredient.name %></li>
     <% end %>
   </ul>
+  
   <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail.id), class: "btn btn-primary"  %>
 </div>

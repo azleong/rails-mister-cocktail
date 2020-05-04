@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show]
+
 
   def index
     #get all the cocktails
@@ -9,6 +9,7 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    @cocktail = Cocktail.find(params[:id])
   #use params to find cocktail we clicked on before
   end
 
@@ -28,14 +29,12 @@ class CocktailsController < ApplicationController
     end
   end
 
-  private
+ private
 
   def cocktail_params
     # only keep what we want from the params
     params.require(:cocktail).permit(:name)
   end
 
-  def set_cocktail
-    @cocktail = Cocktail.find(params[:id])
-  end
+
 end

@@ -1,24 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Drunk</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-        <div class="text-center">
-  <%= link_to "View all cocktails", new_cocktail_path, class: "list-btn btn btn-info" %>
-</div>
-      <div class="text-center">
-  <%= link_to "Add a cocktail", new_cocktail_path, class: "list-btn btn btn-success" %>
-</div>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search for your cocktail" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+<%= render "/shared/navbar" %>
 
 <div class="row">
 <% @cocktails.each do |cocktail| %>
@@ -26,8 +6,8 @@
   <img class="card-img-top" src="https://source.unsplash.com/random/400x300" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
-    <p class="card-text"><%= cocktail.doses %></p>
-    <%= link_to "More info", cocktail_path(cocktail), class: "btn btn-primary" %>
+    
+    <%= link_to "Add dose", cocktail_path(cocktail), class: "btn btn-primary" %>
   </div>
 
   </div>

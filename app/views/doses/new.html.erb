@@ -1,3 +1,5 @@
+<%= render "/shared/navbar" %>
+
 <div class="container">
   <h1>You are adding a dose for <%= @cocktail.name %></h1>
   <%= simple_form_for([@cocktail, @dose]) do |f| %>
