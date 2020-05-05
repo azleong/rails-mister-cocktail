@@ -1,9 +1,9 @@
 class DosesController < ApplicationController
 
   def new
-    # Get cocktail from the URL 
+    # Get the cocktail from params URL 
     @cocktail = Cocktail.find(params[:cocktail_id])
-    # simple_form needs an instance 
+    # Y u need Dose.new 
     @dose = Dose.new
   end
 
