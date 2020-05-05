@@ -1,16 +1,17 @@
-class DosesController < ApplicationController
+# frozen_string_literal: true
 
+class DosesController < ApplicationController
   def new
-    # Get the cocktail from params URL 
+    # Get the cocktail from params URL
     @cocktail = Cocktail.find(params[:cocktail_id])
-    # Y u need Dose.new 
+    # Y u need Dose.new
     @dose = Dose.new
   end
 
   def create
-    # Get the cocktail from the URL 
+    # Get the cocktail from the URL
     @cocktail = Cocktail.find(params[:cocktail_id])
-    # Save the data from the form in a dose instance 
+    # Save the data from the form in a dose instance
     @dose = Dose.new(dose_params)
     # Link the dose and cocktail together
     @dose.cocktail = @cocktail
@@ -18,7 +19,7 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -33,5 +34,4 @@ class DosesController < ApplicationController
   def dose_params
     params.require(:dose).permit(:description, :ingredient_id)
   end
-
 end

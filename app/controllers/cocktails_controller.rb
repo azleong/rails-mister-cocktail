@@ -1,25 +1,23 @@
 # frozen_string_literal: true
 
 class CocktailsController < ApplicationController
-
-
   def index
-    #get all the cocktails
+    # get all the cocktails
     @cocktails = Cocktail.all
   end
 
   def show
     @cocktail = Cocktail.find(params[:id])
-  #use params to find cocktail we jut clicked on
+    # use params to find cocktail we jut clicked on
   end
 
   def new
-    # Y u need this? 
+    # Y u need this?
     @cocktail = Cocktail.new
   end
 
   def create
-    #this is saving the data from the form in a cocktail instance
+    # this is saving the data from the form in a cocktail instance
     @cocktail = Cocktail.new(cocktail_params)
     # save it in the DB
     if @cocktail.save
@@ -29,12 +27,10 @@ class CocktailsController < ApplicationController
     end
   end
 
- private
+  private
 
   def cocktail_params
     # only keep what we want from the params
     params.require(:cocktail).permit(:name)
   end
-
-
 end
