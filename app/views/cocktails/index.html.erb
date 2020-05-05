@@ -1,9 +1,17 @@
 <%= render "/shared/navbar" %>
 
+  <div class="banner">
+    <div class="container">
+      <h1>Stay awhile, and drink.</h1>
+      <p>Don't forget to add your favourite cocktail!</p>
+  <%= link_to "Add a cocktail", new_cocktail_path, class: "list-btn btn btn-success" %>
+    </div>
+  </div>
+
 <div class="row">
 <% @cocktails.each do |cocktail| %>
   <div class="card col-3 m-3" style="width: 18rem;">
-  <img class="card-img-top" src="https://source.unsplash.com/random/400x300" alt="Card image cap">
+  <img class="card-img-top" src="https://source.unsplash.com/random/400x200" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
     

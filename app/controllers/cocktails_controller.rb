@@ -10,16 +10,16 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
-  #use params to find cocktail we clicked on before
+  #use params to find cocktail we jut clicked on
   end
 
   def new
-    #because simple form needs an instance?
+    # Y u need this? 
     @cocktail = Cocktail.new
   end
 
   def create
-    #save data from the form in a cocktail instance
+    #this is saving the data from the form in a cocktail instance
     @cocktail = Cocktail.new(cocktail_params)
     # save it in the DB
     if @cocktail.save
