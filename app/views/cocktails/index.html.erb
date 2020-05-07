@@ -8,10 +8,12 @@
     </div>
   </div>
 
-<div class="row">
+<div class="row card-container">
 <% @cocktails.each do |cocktail| %>
   <div class="card col-3 m-3" style="width: 18rem;">
+  <div class="image">
   <img class="card-img-top" src="https://source.unsplash.com/random/400x200" alt="Card image cap">
+  </div>
   <div class="card-body">
     <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
     
@@ -21,7 +23,4 @@
   </div>
 <% end %>
 </div>
-
-<%= cl_image_tag("nrtcykaiitd21gowzlvk",
-      width: 400, height: 300, crop: :fill) %>
 
