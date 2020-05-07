@@ -11,6 +11,8 @@
       <li><%= dose.description %> <%= dose.ingredient.name %></li>
     <% end %>
   </ul>
+
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
   
   <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail.id), class: "btn btn-primary"  %>
 </div>
